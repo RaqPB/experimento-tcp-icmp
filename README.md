@@ -7,9 +7,12 @@ Este projeto foi desenvolvido como parte de um Artigo Científico (formato IEEE)
 ## Tecnologias Utilizadas
 * **Linguagem:** Python 3.x
 * **Bibliotecas:** `socket`, `subprocess`, `pandas`, `matplotlib`
-* **Ambiente de Teste:** Zorin OS (Linux) / macOS.
+* **Ambiente de Teste:** Zorin OS (Linux).
 
-> **⚠️ AVISO PARA USUÁRIOS WINDOWS:** > A automação deste experimento foi desenvolvida nativamente para ecossistemas Unix (Linux/macOS), os quais utilizam o parâmetro `-c` no comando Ping para limitar o número de disparos. **Se você estiver rodando este código no Windows**, o script retornará um erro. Para resolver, abra o arquivo `src/experimento_protocolos.py`, vá até a função `coletar_amostra_icmp()` e altere a string `'-c'` para `'-n'`.
+> **⚠️ AVISO PARA USUÁRIOS WINDOWS:** > A automação deste experimento foi desenvolvida nativamente para ecossistemas Unix (Linux e macOS). Se você estiver utilizando **Windows**, será necessário realizar duas pequenas adaptações para reproduzir o experimento:
+> 
+> 1. **Comandos no Terminal:** O passo a passo abaixo utiliza o comando `python3` (padrão em Linux e Mac). No terminal do Windows, substitua todas as chamadas `python3` por `python` (exemplo: `python servidor_tcp.py`).
+> 2. **Ajuste no Código:** Sistemas Unix utilizam o parâmetro `-c` no comando Ping para limitar os disparos, enquanto o Windows utiliza `-n`. Para que o script não falhe, abra o arquivo `src/experimento_protocolos.py`, localize a função `coletar_amostra_icmp()` e altere a string `'-c'` para `'-n'`.
 
 ## Arquitetura do Experimento e Estrutura de Pastas
 A coleta e análise dos dados são divididas em 4 módulos autônomos localizados na pasta `/src`. Todos os scripts necessários para a reprodução estão concentrados nela:
@@ -25,25 +28,28 @@ A coleta e análise dos dados são divididas em 4 módulos autônomos localizado
 
 **1. Clone o repositório e instale as dependências:**
 ```bash
-git clone [https://github.com/usuario/repositorio](https://github.com/usuario/repositorio)
+git clone [https://github.com/RaqPB/experimento-tcp-icmp.git](https://github.com/RaqPB/experimento-tcp-icmp.git)
 cd experimento-tcp-icmp
 pip install -r requisitos.txt
-
+```
 **2. Navegue até a pasta de código-fonte (src/):**
 Para que o experimento funcione corretamente, o seu terminal deve obrigatoriamente estar dentro da pasta src/, pois os códigos geram e leem os arquivos a partir do diretório atual.
 
 ```bash
 cd src
+```
 **3. Inicie o Servidor TCP:**
 Ainda dentro da pasta src/, inicie o servidor (ele ficará aguardando conexões e pode ser deixado em segundo plano):
 
 ```bash
 python3 servidor_tcp.py
+```
 **4. Execute a Coleta de Dados:**
 Abra uma nova aba ou janela no terminal, acesse novamente a pasta src/ (cd src) e inicie a bateria de testes:
 
 ```bash
 python3 experimento_protocolos.py
+```
 (Aguarde aproximadamente 2 minutos até o fim do processo. Após a conclusão, o arquivo dados_experimento.csv será gerado e ficará salvo na pasta src/).
 
 **5. Gere a Tabela Estatística:**
@@ -51,15 +57,11 @@ Com o arquivo CSV gerado, execute a análise para processar a tabela estatístic
 
 ```bash
 python3 analise_estatistica.py
+```
 **6. Gere o Gráfico de Resultados:**
 Por fim, rode o gerador de visualização. A imagem com o gráfico de barras (grafico_latencia.png) será criada e salva automaticamente dentro da pasta src/:
 
 ```bash
-<<<<<<< HEAD
 python3 gerador_graficos.py
-=======
-python3 gerador_graficos.py
-
-
+```
 Autora: Raquel Pereira
->>>>>>> 40c259eba54c3b21de08ae6d22acab57b0b14349
