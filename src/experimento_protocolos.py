@@ -74,7 +74,7 @@ def coletar_amostra_icmp():
     print(f"Executando {ITERACOES} iterações de amostragem ICMP (Ping do SO)...")
     resultados = []
     
-    # O parâmetro '-c' é mandatório em distribuições Linux
+    # O parâmetro '-c' é mandatório em distribuições Linux (para Windows o parâmetro é '-n')
     # para evitar que o ping entre em um loop infinito no terminal.
     comando = ['ping', '-c', str(ITERACOES), HOST]
     resultado = subprocess.run(comando, capture_output=True, text=True)

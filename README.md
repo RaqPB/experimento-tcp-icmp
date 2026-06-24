@@ -55,4 +55,11 @@ python3 analise_estatistica.py
 Por fim, rode o gerador de visualização. A imagem com o gráfico de barras (grafico_latencia.png) será criada e salva automaticamente dentro da pasta src/:
 
 ```bash
+<<<<<<< HEAD
 python3 gerador_graficos.py
+=======
+python3 gerador_graficos.py
+
+
+Autora: Raquel Pereira
+>>>>>>> 40c259eba54c3b21de08ae6d22acab57b0b14349
