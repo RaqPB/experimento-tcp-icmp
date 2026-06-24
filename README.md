@@ -59,4 +59,4 @@ Por fim, rode o gerador de visualização. A imagem com o gráfico de barras (gr
 python3 gerador_graficos.py
 
 
-Autor: Raquel Pereira
+Autora: Raquel Pereira
