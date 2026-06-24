@@ -28,7 +28,7 @@ A coleta e análise dos dados são divididas em 4 módulos autônomos localizado
 
 **1. Clone o repositório e instale as dependências:**
 ```bash
-git clone [https://github.com/RaqPB/experimento-tcp-icmp.git](https://github.com/RaqPB/experimento-tcp-icmp.git)
+git clone https://github.com/RaqPB/experimento-tcp-icmp.git
 cd experimento-tcp-icmp
 pip install -r requisitos.txt
 ```
